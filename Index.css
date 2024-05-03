@@ -25,9 +25,17 @@
     line-height: 28px;
     align-items: center;
     position: relative;
-    max-width: 190px;
-    
+    max-width: 190px;   
 }
+
+.group2 {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 390px;   
+}
+
 .input {
     width: 100%;
     height: 35px;
@@ -41,6 +49,21 @@
     color: #0d0c22;
     transition: .3s ease;
 }
+
+.input2{
+    width: 800px;
+    height: 35px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
 .icon {
     position: absolute;
     left: 1rem;
@@ -60,4 +83,12 @@
 .icon2{
     padding-top: 300px;
     padding-left: 15px;
+}
+
+.carpeta-contenedor{
+    display: flex;
+    justify-content: center;
+    
+
+    background-color: #d1d1d1;
 }
