@@ -20,6 +20,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.buscador2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
 .group {
     display: flex;
     line-height: 28px;
@@ -74,6 +82,9 @@
 
 .carpeta{
     text-decoration: none;
+    padding-left: 4px;
+    font-size: 20px;
+    font-weight: 500;
 }
 .carpetas{
     padding-top: 20px;
@@ -81,7 +92,7 @@
 }
 
 .icon2{
-    padding-top: 300px;
+    padding-top: 240px;
     padding-left: 15px;
 }
 
@@ -89,6 +100,49 @@
     display: flex;
     justify-content: center;
     
-
     background-color: #d1d1d1;
 }
+
+.notas{
+    padding-top: 20px;
+}
+
+.card {
+    width: 220px;
+    height: 254px;
+    margin: 0 auto;
+    background-color: #011522;
+    border-radius: 8px;
+    z-index: 1;
+   }
+   
+   .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+   }
+   
+   .card__content{
+    height: 130px;
+   }
+
+   .card__menu {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .texto-nota{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon3{
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
