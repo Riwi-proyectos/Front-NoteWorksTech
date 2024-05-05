@@ -112,7 +112,7 @@ body{
 }
 
 .card {
-    width: 220px;
+    width: 250px;
     height: 254px;
     margin: 0 auto;
     background-color: #011522;
@@ -127,7 +127,7 @@ body{
    }
    
    .card__content{
-    height: 130px;
+    height: 90px;
    }
 
    .card__menu {
