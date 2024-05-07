@@ -1,0 +1,12 @@
+.btn-info{
+    background-color: #BFA38A;
+    border-color: #BFA38A;
+}
+.btn-info:hover{
+    background-color: #aa8265;
+    border-color: #aa8265;
+}
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{ 
+    background-color: #9d7159;
+    border-color: #9d7159;
+}
