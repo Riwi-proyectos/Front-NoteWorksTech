@@ -34,9 +34,10 @@
             <div class="icon2">
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Agregar carpeta
+                <button type="button" class="btn btn-info2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#ffffff" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z"/></svg>
                 </button>
+                
                 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,8 +58,6 @@
                     </div>
                     </div>
                 </div>
-
-                <a href="./NuevaCarpeta.html"><svg style="width: 25px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></a>
                 <a href="" class="carpeta  text-light">Crear nueva carpeta</a>
             </div>
         </div>
@@ -102,13 +101,13 @@
                                 <div class="icon3">
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#ffffff" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z"/></svg>
                                     </button>
                                     
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -117,20 +116,22 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="Titulo" aria-label="Username" aria-describedby="basic-addon1">
-                                                  </div>
-                                                <div class="input-group">
-                                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                    <input type="text" id="title" class="form-control" placeholder="Titulo" aria-label="Titulo" aria-describedby="basic-addon1">
                                                 </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Contenido</span>
+                                                    <textarea  id="content" class="form-control" aria-label="Contenido"></textarea>
+                                                  </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" id="NuevaNota">Guardar</button>
+                                                <button type="button" class="btn btn-primary" onclick="CreateNewNote()" id="NuevaNota">Guardar</button>
                                             </div>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row notas" id="ContainerNotas">
+                                    
                                 </div>                             
                             </div>
                         </div>
