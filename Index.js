@@ -32,9 +32,10 @@ function GetCategory() {
   .then((data) => {
     console.log(data);
     for (let Carpetas = 0; Carpetas < data.length; Carpetas++) {
-      document.getElementById("ContainerCarpeta").innerHTML += `<div class="carpetas">
+      document.getElementById("ContainerCarpeta").innerHTML += `
+      <div class="carpetas">
         <a href="./Carpetas.html" class="carpeta  text-light">${data[Carpetas].name}</a>
-        <ion-icon name="trash-outline"></ion-icon>
+        <ion-icon class="icon4" name="trash-outline"></ion-icon>
       </div>`
     }
   })
@@ -68,6 +69,7 @@ async function CreateNewCategory() {
 
 function DeleteCategory() {
   var url = ("http://localhost:5118/api/Categories"+ category.Id)
+  var data = { Name: document.getElementById("Name").value };
   fetch(url, {
     method: "DELETE",
     body: JSON.stringify(data),
