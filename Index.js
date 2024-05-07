@@ -3,8 +3,10 @@ function GetNoteWorks() {
     .then((r) => r.json())
     .then((data) => {
       console.log(data);
+      let cont = document.getElementById("ContainerNotas")
+      cont.innerHTML= "";
       for (let Notas = 0; Notas < data.length; Notas++) {
-        document.getElementById("ContainerNotas").innerHTML += `
+        cont.innerHTML += `
         <div class="col-sm-3">
             <div class="card w-100 mb-4">
                 <div class="tools">
@@ -30,14 +32,21 @@ function GetCategory() {
   fetch("http://localhost:5118/api/Categories")
   .then((r) => r.json())
   .then((data) => {
-    console.log(data);
+    console.log("la propia",data);
+    let cont = document.getElementById("ContainerCarpeta");
+    cont.innerHTML= "";
     for (let Carpetas = 0; Carpetas < data.length; Carpetas++) {
-      document.getElementById("ContainerCarpeta").innerHTML += `
-      <div class="carpetas">
-        <a href="./Carpetas.html" class="carpeta  text-light">${data[Carpetas].name}</a>
-        <ion-icon class="icon4" name="trash-outline"></ion-icon>
-      </div>`
+      if(data[Carpetas].status != "Inactivo"){
+        cont.innerHTML += `
+        <div class="carpetas">
+          <a href="./Carpetas.html" class="carpeta  text-light">${data[Carpetas].name}</a>
+          <button class="btn btn-link" onclick="DeleteCategory(${data[Carpetas].id})">
+            <ion-icon class="icon-folder" name="trash-outline"></ion-icon>
+          </button>
+        </div>`
+      }
     }
+    
   })
 };
 
@@ -67,6 +76,7 @@ async function CreateNewCategory() {
   )
 };
 
+<<<<<<< HEAD
 
 
 async function CreateNewNote(){
@@ -98,6 +108,10 @@ async function CreateNewNote(){
 
 function DeleteCategory() {
   var url = ("http://localhost:5118/api/Categories"+ category.Id)
+=======
+function DeleteCategory(id) {
+  var url = ("http://localhost:5118/api/Categories/"+id)
+>>>>>>> d054e4fb9e9236efe757af276efec99715ad4852
   var data = { Name: document.getElementById("Name").value };
   fetch(url, {
     method: "DELETE",
@@ -108,6 +122,6 @@ function DeleteCategory() {
     }
   })
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => {GetCategory();GetNoteWorks();})
   .catch(err => console.log(err))
 }
