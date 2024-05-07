@@ -76,6 +76,37 @@ async function CreateNewCategory() {
   )
 };
 
+
+
+async function CreateNewNote(){
+  var url = "http://localhost:5118/api/NoteWorks";
+  var data = {Title: document.getElementById("Title").value, Content: document.getElementById("Content").value};
+  await fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+  .then((response) => {
+    console.log(data);
+    for (let Notas = 0; Notas < data.length; Notas++) 
+    {
+      document.getElementById("ContainerNotaS").innerHTML += ``;
+    }
+      location.reload();
+    }
+  )
+};
+
+
+
+
+
+function DeleteCategory() {
+  var url = ("http://localhost:5118/api/Categories"+ category.Id)
 function DeleteCategory(id) {
   var url = ("http://localhost:5118/api/Categories/"+id)
   var data = { Name: document.getElementById("Name").value };
@@ -90,4 +121,5 @@ function DeleteCategory(id) {
   .then(response => response.json())
   .then(data => {GetCategory();GetNoteWorks();})
   .catch(err => console.log(err))
-}
+  }
+};
