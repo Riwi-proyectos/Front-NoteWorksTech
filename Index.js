@@ -76,7 +76,6 @@ async function CreateNewCategory() {
   )
 };
 
-<<<<<<< HEAD
 
 
 async function CreateNewNote(){
@@ -108,10 +107,8 @@ async function CreateNewNote(){
 
 function DeleteCategory() {
   var url = ("http://localhost:5118/api/Categories"+ category.Id)
-=======
 function DeleteCategory(id) {
   var url = ("http://localhost:5118/api/Categories/"+id)
->>>>>>> d054e4fb9e9236efe757af276efec99715ad4852
   var data = { Name: document.getElementById("Name").value };
   fetch(url, {
     method: "DELETE",
@@ -124,4 +121,5 @@ function DeleteCategory(id) {
   .then(response => response.json())
   .then(data => {GetCategory();GetNoteWorks();})
   .catch(err => console.log(err))
-}
+  }
+};
