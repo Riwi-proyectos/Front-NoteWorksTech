@@ -1,0 +1,176 @@
+ [HttpPut("{id}")]
+    public IActionResult PutNota(int id, Nota nota)
+    {
+        if (id != nota.Id)
+        {
+            return BadRequest();
+        }
+
+        var notaExistente = _context.Notas.FirstOrDefault(n => n.Id == id);
+        if (notaExistente == null)
+        {
+            return NotFound();
+        }
+
+        notaExistente.Titulo = nota.Titulo;
+        notaExistente.Texto = nota.Texto;
+        notaExistente.Categoria = nota.Categoria;
+
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
+
+
+
+
+ <!-- Agregar modal de edición -->
+    <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editarModalLabel">Editar Nota</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editarTitulo" class="form-label">Título</label>
+              <input type="text" class="form-control" id="editarTitulo">
+            </div>
+            <div class="mb-3">
+              <label for="editarTexto" class="form-label">Texto</label>
+              <textarea class="form-control" id="editarTexto" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editarCategoria" class="form-label">Categoría</label>
+              <select class="form-select" id="editarCategoria">
+                <option value="Trabajo">Trabajo</option>
+                <option value="Personal">Personal</option>
+                <option value="Estudio">Estudio</option>
+                <option value="Hobbies">Hobbies</option>
+              </select>
+            </div>
+            <input type="hidden" id="editarNotaId">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Agregar modal de edición -->
+    <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editarModalLabel">Editar Nota</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editarTitulo" class="form-label">Título</label>
+              <input type="text" class="form-control" id="editarTitulo">
+            </div>
+            <div class="mb-3">
+              <label for="editarTexto" class="form-label">Texto</label>
+              <textarea class="form-control" id="editarTexto" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editarCategoria" class="form-label">Categoría</label>
+              <select class="form-select" id="editarCategoria">
+                <option value="Trabajo">Trabajo</option>
+                <option value="Personal">Personal</option>
+                <option value="Estudio">Estudio</option>
+                <option value="Hobbies">Hobbies</option>
+              </select>
+            </div>
+            <input type="hidden" id="editarNotaId">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="pepe" tabindex="-1" aria-labelledby="pepe" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pepe">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="nota_id" disabled>
+        <input type="text" id="edit_title" class="form-control">
+        <input type="text" id="edit_text" class="form-control">
+        <select name="" id="edit_category">
+          <option value="Trabajo">Trabajo</option>
+          <option value="Personal">Personal</option>
+          <option value="Estudio">Estudio</option>
+          <option value="Hobbies">Hobbies</option>
+        </select>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" onclick="actualizarNota()">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+function actualizarNota() {
+  var id = document.getElementById("nota_id").value;
+  var titulo = document.getElementById("edit_title").value;
+  var texto = document.getElementById("edit_text").value;
+  var categoria = document.getElementById("edit_category").value;
+
+  var notaActualizada = {
+    id: id,
+    titulo: titulo,
+    texto: texto,
+    categoria: categoria
+  };
+
+  fetch(`http://localhost:5117/api/Notas/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(notaActualizada)
+  })
+    .then(response => {
+      if (response.ok) {
+        $('#pepe').modal('hide'); // Ocultar el modal después de la edición
+        location.reload();
+      } else {
+        throw new Error("Error al actualizar la nota. La nota no se actualizó.");
+      }
+      
+    });
+}
