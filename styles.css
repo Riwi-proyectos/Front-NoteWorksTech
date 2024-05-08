@@ -11,7 +11,6 @@
     border-color: #9d7159;
 }
 
-
 .btn-info2{
     background-color: #d1d1d1;
     border-color: #d1d1d1;
@@ -37,3 +36,6 @@
     font-weight: bold;
 }
 
+.card__menu{
+    margin: 20px !important;
+}
