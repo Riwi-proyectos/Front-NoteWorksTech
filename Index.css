@@ -92,11 +92,7 @@ body{
     padding-left: 15px;
 }
 
-.carpeta-contenedor{
-    display: flex;
-    justify-content: center;
-    background-color: #d1d1d1;
-}
+
 
 .notas{
     padding-top: 20px;

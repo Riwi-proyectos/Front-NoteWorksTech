@@ -39,3 +39,14 @@
 .card__menu{
     margin: 20px !important;
 }
+
+.sidebar-container {
+    position: relative;
+    height: 10vh;
+}
+
+#fijarAbajo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
